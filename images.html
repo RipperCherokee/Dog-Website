@@ -21,7 +21,7 @@
             const breedTitles = {
                 "labrador": "Labrador Retriever",
                 "germanshepherd": "German Shepherd",
-                "african": "Golden Retriever",
+                "african": "African",
                 "poodle": "Toy Poodle",
                 "rottweiler": "Rottweiler",
                 "chow": "Chow"
@@ -38,16 +38,16 @@
 
             Promise.all(breeds.map(loadImages)).then(() => {
                 if (selectedBreed && breedImages[selectedBreed]) {
-                    displayImages(selectedBreed);
+                    displayImages(selectedBreed, true);
                 }
                 breeds.forEach(breed => {
                     if (breed !== selectedBreed) {
-                        displayImages(breed);
+                        displayImages(breed, false);
                     }
                 });
             });
 
-            function displayImages(breed) {
+            function displayImages(breed, isSelected) {
                 const breedTitle = document.createElement('h2');
                 breedTitle.textContent = breedTitles[breed] || breed;
                 imagesContainer.appendChild(breedTitle);
@@ -60,6 +60,21 @@
                     img.style.height = 'auto';
                     imagesContainer.appendChild(img);
                 });
+
+                if (isSelected) {
+                    const selectedBreedDiv = document.createElement('div');
+                    selectedBreedDiv.classList.add('selected-breed');
+                    selectedBreedDiv.appendChild(breedTitle);
+                    breedImages[breed].forEach(imageUrl => {
+                        const img = document.createElement('img');
+                        img.src = imageUrl;
+                        img.alt = `${breed} image`;
+                        img.style.width = '200px';
+                        img.style.height = 'auto';
+                        selectedBreedDiv.appendChild(img);
+                    });
+                    imagesContainer.insertBefore(selectedBreedDiv, imagesContainer.firstChild);
+                }
             }
         });
     </script>
