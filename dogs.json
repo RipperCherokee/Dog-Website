@@ -6,7 +6,7 @@
         "size": "Large",
         "lifespan": "10-12 years",
         "origin": "Canada",
-        "imageURL": "https://dog.ceo/api/breed/labrador/images/random"
+        "imageURL": "https://images.unsplash.com/photo-1574158622682-e40e69881006?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
         "breedId": "2",
@@ -15,7 +15,7 @@
         "size": "Large",
         "lifespan": "9-13 years",
         "origin": "Germany",
-        "imageURL": "https://dog.ceo/api/breed/germanshepherd/images/random"
+        "imageURL": "https://images.unsplash.com/photo-1601758123927-7873bfa7e1d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
         "breedId": "3",
@@ -24,7 +24,7 @@
         "size": "Large",
         "lifespan": "10-12 years",
         "origin": "Scotland",
-        "imageURL": "https://dog.ceo/api/breed/goldenretriever/images/random"
+        "imageURL": "https://images.unsplash.com/photo-1592194996308-7d0721c6a5bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
         "breedId": "4",
@@ -33,7 +33,7 @@
         "size": "Small to Large",
         "lifespan": "10-18 years",
         "origin": "Germany/France",
-        "imageURL": "https://dog.ceo/api/breed/Toypoodle/images/random"
+        "imageURL": "https://images.unsplash.com/photo-1548365328-9f547f9a0674?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
         "breedId": "5",
@@ -42,6 +42,15 @@
         "size": "Large",
         "lifespan": "8-10 years",
         "origin": "Germany",
-        "imageURL": "https://dog.ceo/api/breed/rottweiler/images/random"
+        "imageURL": "https://images.unsplash.com/photo-1601758123927-7873bfa7e1d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+    },
+    {
+        "breedId": "6",
+        "breedName": "Chow",
+        "Description": "Confident, fearless, and good-natured. They are strong, loyal, and protective family members.",
+        "size": "Large",
+        "lifespan": "8-10 years",
+        "origin": "China",
+        "imageURL": "https://images.unsplash.com/photo-1560807707-8cc77767d783?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     }
 ]
