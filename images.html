@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breed Images</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Dog Breed Images</h1>
+    <div id="imagesContainer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedBreed = urlParams.get('breed');
+            const imagesContainer = document.getElementById('imagesContainer');
+            const breeds = ["breed1", "breed2", "breed3"]; // Add your breed names here
+            const breedImages = {};
+
+            const loadImages = (breed) => {
+                return fetch(`https://dog.ceo/api/breed/${breed}/images/random/5`)
+                    .then(response => response.json())
+                    .then(data => {
+                        breedImages[breed] = data.message;
+                    })
+                    .catch(error => console.error('Error fetching images:', error));
+            };
+
+            // Load images for all breeds
+            Promise.all(breeds.map(loadImages)).then(() => {
+                // Prioritize selected breed
+                if (selectedBreed && breedImages[selectedBreed]) {
+                    displayImages(selectedBreed);
+                }
+
+                // Display all breeds
+                breeds.forEach(breed => {
+                    if (breed !== selectedBreed) {
+                        displayImages(breed);
+                    }
+                });
+            });
+
+            function displayImages(breed) {
+                const breedTitle = document.createElement('h2');
+                breedTitle.textContent = breed;
+                imagesContainer.appendChild(breedTitle);
+
+                breedImages[breed].forEach(imageUrl => {
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = `${breed} image`;
+                    img.style.width = '200px';
+                    img.style.height = 'auto';
+                    imagesContainer.appendChild(img);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 [
     {
         "breedId": "1",
-        "breedName": "Labrador Retriever",
+        "breedName": "Labrador",
         "Description": "Friendly, outgoing, and high-spirited companions who have more than enough affection to go around.",
         "size": "Large",
         "lifespan": "10-12 years",
@@ -10,7 +10,7 @@
     },
     {
         "breedId": "2",
-        "breedName": "German Shepherd",
+        "breedName": "Germanshepherd",
         "Description": "Confident, courageous, and smart. They are known for their loyalty and guarding instincts.",
         "size": "Large",
         "lifespan": "9-13 years",
@@ -28,33 +28,15 @@
     },
     {
         "breedId": "4",
-        "breedName": "Bulldog",
-        "Description": "Docile, willful, and friendly. Bulldogs are known for their distinctive wrinkled face and pushed-in nose.",
-        "size": "Medium",
-        "lifespan": "8-10 years",
-        "origin": "England",
-        "imageURL": "https://dog.ceo/api/breed/bulldog/images/random"
-    },
-    {
-        "breedId": "5",
-        "breedName": "Beagle",
-        "Description": "Curious, merry, and friendly. They are excellent hunting dogs and loyal companions.",
-        "size": "Small to Medium",
-        "lifespan": "12-15 years",
-        "origin": "England",
-        "imageURL": "https://dog.ceo/api/breed/beagle/images/random"
-    },
-    {
-        "breedId": "6",
-        "breedName": "Poodle",
+        "breedName": "Toy Poodle",
         "Description": "Active, proud, and very smart. Poodles are known for their curly coats and high intelligence.",
         "size": "Small to Large",
         "lifespan": "10-18 years",
         "origin": "Germany/France",
-        "imageURL": "https://dog.ceo/api/breed/poodle/images/random"
+        "imageURL": "https://dog.ceo/api/breed/Toypoodle/images/random"
     },
     {
-        "breedId": "7",
+        "breedId": "5",
         "breedName": "Rottweiler",
         "Description": "Confident, fearless, and good-natured. They are strong, loyal, and protective family members.",
         "size": "Large",

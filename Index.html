@@ -7,38 +7,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Our Dog Breeds Platform</h1>
-            <p>Explore a variety of dog breeds and find your perfect companion.</p>
-            <a href="#breedTable" class="cta-button">Browse Breeds</a>
-        </div>
+  <div class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Our Dog Breeds Platform</h1>
+        <p>Explore a variety of dog breeds and learn more about them.</p>
+        <a href="#breedTable" class="cta-button">Browse Breeds</a>
     </div>
-
-    <h1>Dog Breeds</h1>
+</div>
+    <h1>Dog Breed List</h1>
     <div id="filters">
         <input type="text" id="search" placeholder="Search breeds...">
         <select id="sort">
-            <option value="breedName">Sort by Name</option>
-            <option value="lifespan">Sort by Lifespan</option>
+            <option value="name">Sort by Name</option>
             <option value="origin">Sort by Origin</option>
         </select>
     </div>
-
     <table id="breedTable">
         <thead>
             <tr>
-                <th>Image</th>
                 <th>Name</th>
-                <th>Size</th>
-                <th>Lifespan</th>
                 <th>Origin</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
-
     <div id="pagination">
         <button id="prevPage">Previous</button>
         <span id="currentPage">1</span>
@@ -57,8 +51,7 @@
             const itemsPerPage = 3;
             let breeds = [];
 
-            // Fetch the JSON data containing dog breeds
-            fetch('https://raw.githubusercontent.com/RipperCherokee/LabExam/main/courses.json')
+            fetch('https://raw.githubusercontent.com/RipperCherokee/LabTest/main/dogs.json')
               .then(response => response.json())
               .then(data => {
                   breeds = data;
@@ -77,11 +70,9 @@
                 paginatedBreeds.forEach(breed => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td><img src="${breed.imageURL}" alt="${breed.breedName}" width="100"></td>
                         <td>${breed.breedName}</td>
-                        <td>${breed.size}</td>
-                        <td>${breed.lifespan}</td>
                         <td>${breed.origin}</td>
+                        <td><a href="images.html?breed=${encodeURIComponent(breed.breedName)}" class="fetch-button">Fetch Images</a></td>
                     `;
                     breedTable.appendChild(row);
                 });
@@ -96,14 +87,11 @@
 
                 let filtered = breeds.filter(breed =>
                     breed.breedName.toLowerCase().includes(searchTerm) ||
-                    breed.origin.toLowerCase().includes(searchTerm) ||
-                    breed.size.toLowerCase().includes(searchTerm)
+                    breed.origin.toLowerCase().includes(searchTerm)
                 );
 
-                if (sortBy === 'breedName') {
+                if (sortBy === 'name') {
                     filtered.sort((a, b) => a.breedName.localeCompare(b.breedName));
-                } else if (sortBy === 'lifespan') {
-                    filtered.sort((a, b) => parseInt(a.lifespan) - parseInt(b.lifespan));
                 } else if (sortBy === 'origin') {
                     filtered.sort((a, b) => a.origin.localeCompare(b.origin));
                 }
@@ -120,11 +108,9 @@
                 currentPage = 1;
                 renderBreeds();
             });
-
             sortSelect.addEventListener('change', () => {
                 renderBreeds();
             });
-
             prevPageButton.addEventListener('click', () => {
                 if (currentPage > 1) {
                     currentPage--;
@@ -136,46 +122,6 @@
                 currentPage++;
                 renderBreeds();
             });
-        });
-    </script>
-
-    <form id="signUpForm">
-        <h2>Sign Up for Updates</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Sign Up</button>
-    </form>
-
-    <div id="formMessages"></div>
-
-    <script>
-        document.getElementById('signUpForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const formMessages = document.getElementById('formMessages');
-
-            if (username.length < 3) {
-                formMessages.textContent = 'Username must be at least 3 characters long.';
-                return;
-            }
-
-            if (!email.includes('@')) {
-                formMessages.textContent = 'Please enter a valid email address.';
-                return;
-            }
-
-            if (password.length < 6) {
-                formMessages.textContent = 'Password must be at least 6 characters long.';
-                return;
-            }
-
-            formMessages.textContent = 'Sign up successful!';
         });
     </script>
 </body>
