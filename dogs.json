@@ -6,16 +6,16 @@
         "size": "Large",
         "lifespan": "10-12 years",
         "origin": "Canada",
-        "imageURL": "https://images.unsplash.com/photo-1574158622682-e40e69881006?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+        "imageURL": "https://dog.ceo/api/breed/labrador/images/random"
     },
     {
         "breedId": "2",
-        "breedName": "Germanshepherd",
+        "breedName": "German Shepherd",
         "Description": "Confident, courageous, and smart. They are known for their loyalty and guarding instincts.",
         "size": "Large",
         "lifespan": "9-13 years",
         "origin": "Germany",
-        "imageURL": "https://images.unsplash.com/photo-1601758123927-7873bfa7e1d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+        "imageURL": "https://dog.ceo/api/breed/germanshepherd/images/random"
     },
     {
         "breedId": "3",
@@ -24,7 +24,7 @@
         "size": "Large",
         "lifespan": "10-12 years",
         "origin": "Scotland",
-        "imageURL": "https://images.unsplash.com/photo-1592194996308-7d0721c6a5bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+        "imageURL": "https://dog.ceo/api/breed/goldenretriever/images/random"
     },
     {
         "breedId": "4",
@@ -33,7 +33,7 @@
         "size": "Small to Large",
         "lifespan": "10-18 years",
         "origin": "Germany/France",
-        "imageURL": "https://images.unsplash.com/photo-1548365328-9f547f9a0674?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+        "imageURL": "https://dog.ceo/api/breed/poodle/toy/images/random"
     },
     {
         "breedId": "5",
@@ -42,7 +42,7 @@
         "size": "Large",
         "lifespan": "8-10 years",
         "origin": "Germany",
-        "imageURL": "https://images.unsplash.com/photo-1601758123927-7873bfa7e1d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+        "imageURL": "https://dog.ceo/api/breed/rottweiler/images/random"
     },
     {
         "breedId": "6",
@@ -51,6 +51,6 @@
         "size": "Large",
         "lifespan": "8-10 years",
         "origin": "China",
-        "imageURL": "https://images.unsplash.com/photo-1560807707-8cc77767d783?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+        "imageURL": "https://dog.ceo/api/breed/chow/images/random"
     }
 ]
