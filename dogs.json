@@ -19,12 +19,12 @@
     },
     {
         "breedId": "3",
-        "breedName": "Golden Retriever",
+        "breedName": "African",
         "Description": "Intelligent, friendly, and devoted. They are great family pets and excel in retrieving games.",
         "size": "Large",
         "lifespan": "10-12 years",
         "origin": "Scotland",
-        "imageURL": "https://dog.ceo/api/breed/goldenretriever/images/random"
+        "imageURL": "https://dog.ceo/api/breed/african/images/random"
     },
     {
         "breedId": "4",

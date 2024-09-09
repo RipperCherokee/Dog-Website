@@ -20,13 +20,17 @@
         <select id="sort">
             <option value="name">Sort by Name</option>
             <option value="origin">Sort by Origin</option>
+            <option value="breedId">Sort by Breed ID</option>
+            <option value="lifespan">Sort by Lifespan</option>
         </select>
     </div>
     <table id="breedTable">
         <thead>
             <tr>
+                <th>Breed ID</th>
                 <th>Name</th>
                 <th>Origin</th>
+                <th>Lifespan</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -40,6 +44,15 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(response => response.json())
+                .then(data => {
+                    const heroSection = document.querySelector('.hero');
+                    heroSection.style.backgroundImage = `url(${data.message})`;
+                })
+                .catch(error => console.error('Error fetching the image:', error));
+        });
         document.addEventListener('DOMContentLoaded', () => {
             const breedTable = document.querySelector('#breedTable tbody');
             const searchInput = document.getElementById('search');
@@ -70,8 +83,10 @@
                 paginatedBreeds.forEach(breed => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
+                        <td>${breed.breedId}</td>
                         <td>${breed.breedName}</td>
                         <td>${breed.origin}</td>
+                        <td>${breed.lifespan}</td>
                         <td><a href="images.html?breed=${encodeURIComponent(breed.breedName)}" class="fetch-button">Fetch Images</a></td>
                     `;
                     breedTable.appendChild(row);
@@ -94,6 +109,14 @@
                     filtered.sort((a, b) => a.breedName.localeCompare(b.breedName));
                 } else if (sortBy === 'origin') {
                     filtered.sort((a, b) => a.origin.localeCompare(b.origin));
+                } else if (sortBy === 'breedId') {
+                    filtered.sort((a, b) => parseInt(a.breedId) - parseInt(b.breedId));
+                } else if (sortBy === 'lifespan') {
+                    filtered.sort((a, b) => {
+                        const aLifespan = parseInt(a.lifespan.split('-')[0]);
+                        const bLifespan = parseInt(b.lifespan.split('-')[0]);
+                        return aLifespan - bLifespan;
+                    });
                 }
 
                 return filtered;

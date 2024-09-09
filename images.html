@@ -15,8 +15,17 @@
             const urlParams = new URLSearchParams(window.location.search);
             const selectedBreed = urlParams.get('breed');
             const imagesContainer = document.getElementById('imagesContainer');
-            const breeds = ["Labrador Retriever", "German Shepherd", "Golden Retriever","Toy Poodle","Rottweiler","Chow"];
+            const breeds = ["labrador", "germanshepherd", "african", "poodle", "rottweiler", "chow"];
             const breedImages = {};
+
+            const breedTitles = {
+                "labrador": "Labrador Retriever",
+                "germanshepherd": "German Shepherd",
+                "african": "Golden Retriever",
+                "poodle": "Toy Poodle",
+                "rottweiler": "Rottweiler",
+                "chow": "Chow"
+            };
 
             const loadImages = (breed) => {
                 return fetch(`https://dog.ceo/api/breed/${breed}/images/random/5`)
@@ -27,14 +36,10 @@
                     .catch(error => console.error('Error fetching images:', error));
             };
 
-            // Load images for all breeds
             Promise.all(breeds.map(loadImages)).then(() => {
-                // Prioritize selected breed
                 if (selectedBreed && breedImages[selectedBreed]) {
                     displayImages(selectedBreed);
                 }
-
-                // Display all breeds
                 breeds.forEach(breed => {
                     if (breed !== selectedBreed) {
                         displayImages(breed);
@@ -44,7 +49,7 @@
 
             function displayImages(breed) {
                 const breedTitle = document.createElement('h2');
-                breedTitle.textContent = breed;
+                breedTitle.textContent = breedTitles[breed] || breed;
                 imagesContainer.appendChild(breedTitle);
 
                 breedImages[breed].forEach(imageUrl => {
