@@ -65,7 +65,7 @@
                 const filteredBreeds = filterBreeds(breeds);
                 const paginatedBreeds = filteredBreeds.slice(start, end);
 
-                breedTable.innerHTML = ''; // Clear the table
+                breedTable.innerHTML = '';
 
                 paginatedBreeds.forEach(breed => {
                     const row = document.createElement('tr');
