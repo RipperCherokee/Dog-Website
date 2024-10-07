@@ -11,7 +11,7 @@
     <div class="hero-content">
         <h1>Welcome to Our Dog Breeds Platform</h1>
         <p>Explore a variety of dog breeds and learn more about them.</p>
-        <a href="#breedTable" class="cta-button">Browse Breeds</a>
+        <a href="about.html" class="cta-button">About Us</a>
     </div>
 </div>
     <h1>Dog Breed List</h1>
@@ -43,6 +43,23 @@
         <button id="nextPage">Next</button>
     </div>
 
+    <!-- Registration Form -->
+    <div class="registration-form">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <button type="submit">Register</button>
+            <div id="formMessages"></div>
+        </form>
+    </div>
+    <!--BG for the hero-->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             fetch('https://dog.ceo/api/breeds/image/random')
@@ -53,6 +70,7 @@
                 })
                 .catch(error => console.error('Error fetching the image:', error));
         });
+        
         document.addEventListener('DOMContentLoaded', () => {
             const breedTable = document.querySelector('#breedTable tbody');
             const searchInput = document.getElementById('search');
@@ -63,7 +81,8 @@
             let currentPage = 1;
             const itemsPerPage = 3;
             let breeds = [];
-
+            
+            //Fetch from DOG CEO API
             fetch('https://raw.githubusercontent.com/RipperCherokee/LabTest/main/dogs.json')
               .then(response => response.json())
               .then(data => {
@@ -145,6 +164,35 @@
                 currentPage++;
                 renderBreeds();
             });
+        });
+
+        // Registration Form Validation
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const formMessages = document.getElementById('formMessages');
+
+            formMessages.textContent = '';
+
+            if (!fullName || !email || !password || !confirmPassword) {
+                formMessages.textContent = 'All fields are required.';
+                formMessages.style.color = 'red';
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                formMessages.textContent = 'Passwords do not match.';
+                formMessages.style.color = 'red';
+                return;
+            }
+
+            formMessages.textContent = 'Registration successful!';
+            formMessages.style.color = 'green';
+            document.getElementById('registerForm').reset();
         });
     </script>
 </body>

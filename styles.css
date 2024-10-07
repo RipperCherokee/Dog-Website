@@ -33,7 +33,7 @@ h1 {
     padding: 80px 20px;
     text-align: center;
     position: relative;
-    box-shadow: inset 0 0 0 2000px rgba(106, 13, 173, 0.5);
+    box-shadow: inset 0 0 0 2000px rgba(210, 147, 255, 0.3);
 }
 
 .hero-content {
@@ -197,6 +197,54 @@ form#signUpForm button:hover {
     color: var(--primary-color);
     font-weight: bold;
     text-align: center;
+}
+.registration-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    background-color: var(--background-color);
+    box-shadow: 0 4px 6px var(--box-shadow-color);
+}
+
+.registration-form h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.registration-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.registration-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px var(--box-shadow-color);
+}
+
+.registration-form button {
+    background-color: var(--primary-color);
+    color: var(--header-text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.registration-form button:hover {
+    background-color: var(--primary-color-hover);
+}
+
+#formMessages {
+    margin-top: 10px;
+    font-size: 14px;
 }
 
 @media screen and (max-width: 768px) {
